@@ -199,7 +199,7 @@ class Fields_map
     function update_for($qry) {
         $this->read();
         $this->fields_map = array_merge($this->fields_map, $this->extract_column_types($qry));
-        $worked = file_put_contents($this->filepath, '<?php return ' . var_export($this->fields_map, true) . "\n ?>");
+        $worked = file_put_contents("/".$this->filepath, '<?php return ' . var_export($this->fields_map, true) . "\n ?>");
         if (false === $worked) {
             // two directories up is our error page
             $wp_db_ab_plugin_path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR
